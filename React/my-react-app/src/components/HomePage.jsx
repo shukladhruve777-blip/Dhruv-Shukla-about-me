@@ -24,11 +24,14 @@ function HomePage(){
     return(
         <div className='homePage'>
 
-            {/* Left side: menu */}
+            {/* Left side: menu (same two icons, reused) */}
             <div className='sidebar'>
-                <p><b>Menu</b></p>
-                <img className='h-Image' src={homePageImg} alt="Home" />
-                <img className='h-Image' src={folderPageImg} alt="Folder" />
+                <p className='menu-title'>Menu</p>
+                <div className='icon-button yellow'><img className='h-Image' src={homePageImg} alt="Home" /></div>
+                <div className='icon-button red'><img className='h-Image' src={folderPageImg} alt="Folder" /></div>
+                <div className='icon-button green'><img className='h-Image' src={homePageImg} alt="Home" /></div>
+                <div className='icon-button yellow'><img className='h-Image' src={folderPageImg} alt="Folder" /></div>
+                <div className='icon-button red'><img className='h-Image' src={homePageImg} alt="Home" /></div>
             </div>
 
             {/* Middle: main content */}
@@ -59,15 +62,15 @@ function HomePage(){
 
                 {/* Three colored cards */}
                 <div className='studies-Info'>
-                    <div className='block blue'>
+                    <div className='block yellow'>
                         <p className='right-side'>10</p>
                         <p className='left-side'>Tasks Assigned</p>
                     </div>
-                    <div className='block purple'>
+                    <div className='block red'>
                         <p className='right-side'>10</p>
                         <p className='left-side'>Tasks Assigned</p>
                     </div>
-                    <div className='block pink'>
+                    <div className='block green'>
                         <p className='right-side'>10</p>
                         <p className='left-side'>Tasks Assigned</p>
                     </div>
@@ -101,9 +104,25 @@ function HomePage(){
                             <p>1</p>
                             <p>Get to Know me</p>
                             <p>Dhruv Shukla</p>
-                            <p>Jun 01,2026</p>
+                            <p>Sept 01,2026</p>
                             <p><img className='profile-Img' src={profileImg} /> Dhruv Shukla</p>
                             <p><span className='status'>On going</span></p>
+                        </div>
+                        <div className='table-block'>
+                            <p>2</p>
+                            <p>StudentTable</p>
+                            <p>Student Management</p>
+                            <p>Jun 01,2026</p>
+                            <p><img className='profile-Img' src={profileImg} /> Dhruv Shukla</p>
+                            <p><span className='status'>Completed</span></p>
+                        </div>
+                        <div className='table-block'>
+                            <p>3</p>
+                            <p>Mini Games</p>
+                            <p>QuickGames</p>
+                            <p>Jun 01,2026</p>
+                            <p><img className='profile-Img' src={profileImg} /> Dhruv Shukla</p>
+                            <p><span className='status'>Completed</span></p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +132,7 @@ function HomePage(){
             {/* Right side: two extra boxes */}
             <div className='right'>
 
-                <div className='assets'>
+                <div className='box'>
                     <p className='box-title'>My Documents</p>
                     <div className='asset-row'>
                         <p>Resume</p>
@@ -129,13 +148,13 @@ function HomePage(){
                     </div>
                 </div>
 
-                <div className='schedule'>
+                <div className='box'>
                     <p className='box-title'>Daily Schedule</p>
-                    <div className='event pink-event'>
+                    <div className='event yellow'>
                         <p><b>9AM - 11AM</b></p>
                         <p>Classes at Sheridan</p>
                     </div>
-                    <div className='event blue-event'>
+                    <div className='event green'>
                         <p><b>1PM - 3PM</b></p>
                         <p>Work on projects</p>
                     </div>
