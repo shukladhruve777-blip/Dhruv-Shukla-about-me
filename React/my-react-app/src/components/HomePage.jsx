@@ -1,4 +1,3 @@
-import React from 'react'
 import homePageImg from '../assets/hPage.jpg'
 import folderPageImg from '../assets/folder.jpg'
 import profileImg from '../assets/profile_Image.jpg'
@@ -24,63 +23,68 @@ function HomePage(){
 
     return(
         <div className='homePage'>
-            <div className = 'sidebar'>
+
+            {/* Left side: menu */}
+            <div className='sidebar'>
                 <p><b>Menu</b></p>
                 <img className='h-Image' src={homePageImg} alt="Home" />
-                <img className='h-Image' src={folderPageImg} alt="Home" />
+                <img className='h-Image' src={folderPageImg} alt="Folder" />
             </div>
 
+            {/* Middle: main content */}
             <div className='middle'>
 
-                <p>{formattedDate}</p>
-                <p>Dhruv Shukla</p>
+                <p className='date'>{formattedDate}</p>
+                <p className='name'>Hi, Dhruv Shukla!</p>
 
-                {/*Middle Section*/}
+                {/* Personal info */}
                 <div className='personal-Info'>
                     <div>
-                        <p>Employment Status:</p>
-                        <p>Full Time Student</p>
+                        <p className='label'>Employment Status:</p>
+                        <p className='value'>Full Time Student</p>
                     </div>
                     <div>
-                        <p>College Name:</p>
-                        <p>Sheridan College</p>
+                        <p className='label'>College Name:</p>
+                        <p className='value'>Sheridan College</p>
                     </div>
                     <div>
-                        <p>Program:</p>
-                        <p>Information Systems Engineering</p>
+                        <p className='label'>Program:</p>
+                        <p className='value'>Information Systems Engineering</p>
                     </div>
                     <div>
-                        <p>Graduate:</p>
-                        <p>Dec 2028</p>
+                        <p className='label'>Graduate:</p>
+                        <p className='value'>Dec 2028</p>
                     </div>
                 </div>
 
+                {/* Three colored cards */}
                 <div className='studies-Info'>
-                    <div className='block'>
+                    <div className='block blue'>
                         <p className='right-side'>10</p>
-                        <p className='left-side'>Tasked assigned</p>
+                        <p className='left-side'>Tasks Assigned</p>
                     </div>
-                    <div className='block'>
+                    <div className='block purple'>
                         <p className='right-side'>10</p>
-                        <p className='left-side'>Tasked assigned</p>
+                        <p className='left-side'>Tasks Assigned</p>
                     </div>
-                    <div className='block'>
+                    <div className='block pink'>
                         <p className='right-side'>10</p>
-                        <p className='left-side'>Tasked assigned</p>
+                        <p className='left-side'>Tasks Assigned</p>
                     </div>
                 </div>
 
+                {/* Table */}
                 <div className='task-Table'>
                     <div className='bar'>
                         <div className='bar-left'>
-                            <p>Tasks</p>
+                            <p className='table-title'>Tasks</p>
                             <p>Date</p>
                         </div>
                         <div className='bar-right'>
-                            <select name="cars" id="cars">
-                                <option value="completed" selected>Completed</option>
+                            <select name="cars" id="cars" defaultValue="completed">
+                                <option value="completed">Completed</option>
                             </select>
-                            <p>Projects</p>
+                            <button className='add-button'>+ Add Task</button>
                         </div>
                     </div>
 
@@ -99,12 +103,46 @@ function HomePage(){
                             <p>Dhruv Shukla</p>
                             <p>Jun 01,2026</p>
                             <p><img className='profile-Img' src={profileImg} /> Dhruv Shukla</p>
-                            <p>On going</p>
+                            <p><span className='status'>On going</span></p>
                         </div>
                     </div>
                 </div>
 
             </div>
+
+            {/* Right side: two extra boxes */}
+            <div className='right'>
+
+                <div className='assets'>
+                    <p className='box-title'>My Documents</p>
+                    <div className='asset-row'>
+                        <p>Resume</p>
+                        <p className='asset-number'>1</p>
+                    </div>
+                    <div className='asset-row'>
+                        <p>Projects</p>
+                        <p className='asset-number'>3</p>
+                    </div>
+                    <div className='asset-row'>
+                        <p>Certificates</p>
+                        <p className='asset-number'>2</p>
+                    </div>
+                </div>
+
+                <div className='schedule'>
+                    <p className='box-title'>Daily Schedule</p>
+                    <div className='event pink-event'>
+                        <p><b>9AM - 11AM</b></p>
+                        <p>Classes at Sheridan</p>
+                    </div>
+                    <div className='event blue-event'>
+                        <p><b>1PM - 3PM</b></p>
+                        <p>Work on projects</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     );
 }

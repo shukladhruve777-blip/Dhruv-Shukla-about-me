@@ -1,104 +1,301 @@
+/* Font (rounded and bold, like the Student Manager card) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
+/* Colors in one place so they are easy to change */
+:root{
+  --dark: #1f1b3a;      /* borders, shadows, text */
+  --background: #eeeaff;
+  --yellow: #ffc43d;
+  --red: #ff6b5e;
+  --green: #3ddc97;
+  --blue: #bfe9ff;
+  --purple: #d9ccff;
+  --pink: #ffc7e6;
+}
+
+body{
+  margin: 0;
+  padding: 30px;
+  background: var(--background);
+  font-family: 'Outfit', sans-serif;
+  color: var(--dark);
+}
+
+p{
+  margin: 4px 0;
+}
+
+/* The whole page: 3 columns (menu, middle, right) */
 .homePage{
   display: grid;
   grid-template-columns: 70px 1fr 320px;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
   background: white;
-  border: 2px solid black;
+  border: 3px solid var(--dark);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--dark);
 }
 
+/* ---------- Left menu ---------- */
 .sidebar{
-  border: 2px solid black;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14px;
   padding: 14px 0;
-  background-color: #d9f0c2;
-  width: 100px;
-  align-items: center;
+  background: linear-gradient(180deg, #d9f0c2, var(--green));
+  border: 3px solid var(--dark);
+  border-radius: 16px;
+  height: fit-content;
 }
 
 .h-Image{
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
 }
 
-/*------------------------------------------------*/
-
+/* ---------- Middle ---------- */
 .middle{
-  margin-left: 50px;
-  border: 2px solid black;
-  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.date{
+  font-weight: 800;
+}
+
+.name{
+  font-size: 36px;
+  font-weight: 800;
 }
 
 .personal-Info{
   display: flex;
-  flex-direction: row;
-  gap: 80px;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
+.label{
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.value{
+  font-weight: 800;
+}
+
+/* Three cards */
 .studies-Info{
   display: flex;
-  flex-direction: row;
   gap: 15px;
 }
 
 .block{
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  border: 2px solid black;
-  width: 300px;
-  height: 150px;
-  padding: 10px;
+  height: 130px;
+  padding: 12px;
+  border: 3px solid var(--dark);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--dark);
 }
 
-.right-side {
+/* Gradient colors for each card */
+.blue{
+  background: linear-gradient(135deg, var(--blue), #8fd3ff);
+}
+
+.purple{
+  background: linear-gradient(135deg, var(--purple), #b9a3ff);
+}
+
+.pink{
+  background: linear-gradient(135deg, var(--pink), #ff9fd0);
+}
+
+.right-side{
   grid-column: 2;
   grid-row: 1;
   align-self: start;
   justify-self: end;
+  font-size: 40px;
+  font-weight: 800;
 }
 
-.left-side {
+.left-side{
   grid-column: 1;
   grid-row: 2;
   align-self: end;
   justify-self: start;
+  font-weight: 600;
+}
+
+/* Table box */
+.task-Table{
+  padding: 16px;
+  background: linear-gradient(135deg, #ffe3de, var(--pink));
+  border: 3px solid var(--dark);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--dark);
 }
 
 .bar{
   display: flex;
-  flex-direction: row;
-  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .bar-left{
   display: flex;
-  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+}
+
+.table-title{
+  font-size: 20px;
+  font-weight: 800;
 }
 
 .bar-right{
   display: flex;
-  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+select{
+  padding: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  background: white;
+  border: 2px solid var(--dark);
+  border-radius: 10px;
+}
+
+/* Yellow button with a "pressed" effect */
+.add-button{
+  padding: 8px 16px;
+  font-family: inherit;
+  font-weight: 800;
+  color: var(--dark);
+  background: var(--yellow);
+  border: 2px solid var(--dark);
+  border-radius: 12px;
+  box-shadow: 0 4px 0 var(--dark);
+  cursor: pointer;
+}
+
+.add-button:active{
+  transform: translateY(4px);
+  box-shadow: none;
 }
 
 .table{
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 12px;
+}
+
+/* Table rows: 6 equal columns so the headings line up with the row */
+.table-bar,
+.table-block{
+  display: grid;
+  grid-template-columns: 0.4fr 1.3fr 1.2fr 1fr 1.5fr 1fr;
+  align-items: center;
+  gap: 10px;
 }
 
 .table-bar{
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-}
-
-.table-block{
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
+  font-weight: 800;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--dark);
 }
 
 .profile-Img{
-  border-radius: 100px;
-  width: 50px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--dark);
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+.status{
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: 800;
+  background: var(--yellow);
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+}
+
+/* ---------- Right side ---------- */
+.right{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.assets{
+  padding: 16px;
+  background: linear-gradient(135deg, #d9f0c2, var(--green));
+  border: 3px solid var(--dark);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--dark);
+}
+
+.box-title{
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.asset-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.asset-number{
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.schedule{
+  padding: 16px;
+  background: linear-gradient(135deg, var(--blue), #8fd3ff);
+  border: 3px solid var(--dark);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--dark);
+}
+
+.event{
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border: 3px solid var(--dark);
+  border-radius: 12px;
+}
+
+.pink-event{
+  background: var(--pink);
+}
+
+.blue-event{
+  background: var(--purple);
 }
