@@ -1,0 +1,104 @@
+.homePage{
+  display: grid;
+  grid-template-columns: 70px 1fr 320px;
+  background: white;
+  border: 2px solid black;
+}
+
+.sidebar{
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px 0;
+  background-color: #d9f0c2;
+  width: 100px;
+  align-items: center;
+}
+
+.h-Image{
+  width: 20px;
+  height: 20px;
+}
+
+/*------------------------------------------------*/
+
+.middle{
+  margin-left: 50px;
+  border: 2px solid black;
+  max-width: 800px;
+}
+
+.personal-Info{
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.studies-Info{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.block{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 2px solid black;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+}
+
+.right-side {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  justify-self: end;
+}
+
+.left-side {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  justify-self: start;
+}
+
+.bar{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.bar-left{
+  display: flex;
+  flex-direction: row;
+}
+
+.bar-right{
+  display: flex;
+  flex-direction: row;
+}
+
+.table{
+  display: flex;
+  flex-direction: column;
+}
+
+.table-bar{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.table-block{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.profile-Img{
+  border-radius: 100px;
+  width: 50px;
+}
