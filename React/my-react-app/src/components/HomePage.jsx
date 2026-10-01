@@ -9,7 +9,7 @@ function HomePage(){
     const day = today.getDate();
 
     const getOrdinalSuffix = (dayNum) => {
-        if (dayNum > 3 && dayNum < 21) return 'th'; // Catches 11th, 12th, 13th
+        if (dayNum > 3 && dayNum < 21) return 'th'; // adds the "st,nd,rd,th" to the date
         switch (dayNum % 10) {
         case 1:  return 'st';
         case 2:  return 'nd';
@@ -24,21 +24,23 @@ function HomePage(){
     return(
         <div className='homePage'>
 
-            {/* Left side: menu (same two icons, reused) */}
+            {/* Left side: menu (every icon is different) */}
             <div className='sidebar'>
-                <p className='menu-title'>Menu</p>
-                <div className='icon-button yellow'><img className='h-Image' src={homePageImg} alt="Home" /></div>
-                <div className='icon-button red'><img className='h-Image' src={folderPageImg} alt="Folder" /></div>
-                <div className='icon-button green'><img className='h-Image' src={homePageImg} alt="Home" /></div>
-                <div className='icon-button yellow'><img className='h-Image' src={folderPageImg} alt="Folder" /></div>
-                <div className='icon-button red'><img className='h-Image' src={homePageImg} alt="Home" /></div>
+                <div className='top-Part'>
+                    <p className='menu-title'>Menu</p>
+                    <div className='icon-button yellow'><img className='h-Image' src={homePageImg} alt="Home" /></div>
+                    <div className='icon-button red'><img className='h-Image' src={folderPageImg} alt="Folder" /></div>
+                </div>
+                <div className='bottom-Part'>
+                    <div className='icon-botton'><img className='sidebar-Profile' src={profileImg} alt="" /></div>
+                </div>
             </div>
 
             {/* Middle: main content */}
             <div className='middle'>
 
                 <p className='date'>{formattedDate}</p>
-                <p className='name'>Hi, Dhruv Shukla!</p>
+                <p className='name'>Dhruv Shukla!</p>
 
                 {/* Personal info */}
                 <div className='personal-Info'>
@@ -81,7 +83,6 @@ function HomePage(){
                     <div className='bar'>
                         <div className='bar-left'>
                             <p className='table-title'>Tasks</p>
-                            <p>Date</p>
                         </div>
                         <div className='bar-right'>
                             <select name="cars" id="cars" defaultValue="completed">
@@ -106,7 +107,7 @@ function HomePage(){
                             <p>Dhruv Shukla</p>
                             <p>Sept 01,2026</p>
                             <p><img className='profile-Img' src={profileImg} /> Dhruv Shukla</p>
-                            <p><span className='status'>On going</span></p>
+                            <p><span className='status yellow'>On going</span></p>
                         </div>
                         <div className='table-block'>
                             <p>2</p>
@@ -114,7 +115,7 @@ function HomePage(){
                             <p>Student Management</p>
                             <p>Jun 01,2026</p>
                             <p><img className='profile-Img' src={profileImg} /> Dhruv Shukla</p>
-                            <p><span className='status'>Completed</span></p>
+                            <p><span className='status green'>Completed</span></p>
                         </div>
                         <div className='table-block'>
                             <p>3</p>
@@ -122,7 +123,7 @@ function HomePage(){
                             <p>QuickGames</p>
                             <p>Jun 01,2026</p>
                             <p><img className='profile-Img' src={profileImg} /> Dhruv Shukla</p>
-                            <p><span className='status'>Completed</span></p>
+                            <p><span className='status green'>Completed</span></p>
                         </div>
                     </div>
                 </div>
@@ -143,7 +144,7 @@ function HomePage(){
                         <p className='asset-number'>3</p>
                     </div>
                     <div className='asset-row'>
-                        <p>Certificates</p>
+                        <p></p>
                         <p className='asset-number'>2</p>
                     </div>
                 </div>

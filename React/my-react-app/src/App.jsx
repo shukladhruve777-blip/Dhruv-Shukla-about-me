@@ -1,12 +1,17 @@
+import { useState } from 'react'
 import HomePage from './components/HomePage.jsx'
-import './App.css'
+import './HomePage.css'
 
 function App() {
-  return(
-    <>
-      <HomePage />
-    </>
-  );
+  const [start, setStarter] = useState("home")
+
+  if(start === "home"){
+    return(
+      <>
+        <HomePage />
+      </>
+    );
+  }
 }
 
 export default App

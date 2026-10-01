@@ -11,11 +11,19 @@
 }
 
 body{
+  box-sizing: border-box;
+  height: 100vh;            /* page is exactly as tall as the screen */
   margin: 0;
-  padding: 40px 20px;
+  padding: 20px;
+  overflow: hidden;         /* no scrolling on the whole page */
   background: var(--background);
   font-family: 'Outfit', sans-serif;
   color: var(--dark);
+}
+
+/* React puts everything inside #root, so it needs the full height too */
+#root{
+  height: 100%;
 }
 
 p{
@@ -30,8 +38,11 @@ p{
 /* ---------- Whole page: menu | middle | right ---------- */
 .homePage{
   display: grid;
-  grid-template-columns: 80px 1fr 300px;
+  grid-template-columns: 80px minmax(0, 1fr) 300px;
+  grid-template-rows: minmax(0, 1fr);   /* columns can never grow taller than the page */
   gap: 24px;
+  box-sizing: border-box;
+  height: 100%;
   max-width: 1250px;
   margin: 0 auto;
   padding: 24px;
@@ -46,11 +57,21 @@ p{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 360px;
   padding: 16px 0;
+  overflow-y: auto;
   border: 3px solid var(--dark);
   border-radius: 16px;
   background: var(--background);
+  width: 90%;
+  height: 95%;
+}
+
+.top-Part{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
 }
 
 .menu-title{
@@ -80,11 +101,18 @@ p{
   mix-blend-mode: multiply; /* hides the white square around the icon */
 }
 
+.sidebar-Profile{
+  width: 40px;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
 /* ---------- Middle ---------- */
 .middle{
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  min-height: 0;   /* lets the table shrink instead of stretching the page */
 }
 
 .date{
@@ -137,7 +165,7 @@ p{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: 130px;
+  height: 110px;
   padding: 14px;
   box-sizing: border-box;
   border: 3px solid var(--dark);
@@ -165,6 +193,10 @@ p{
 
 /* ---------- Task table ---------- */
 .task-Table{
+  display: flex;
+  flex-direction: column;
+  flex: 1;          /* take all the leftover height */
+  min-height: 0;
   padding: 20px;
   border: 3px solid var(--dark);
   border-radius: 16px;
@@ -225,25 +257,38 @@ select{
 .table{
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 12px;
-  padding: 16px;
+  min-height: 0;
+  padding: 0 16px 16px;
+  overflow-y: auto;      /* the table scrolls when there are lots of rows */
+  scrollbar-color: var(--dark) white;
   border: 3px solid var(--dark);
   border-radius: 12px;
 }
 
-/* Heading and row share the same 6 columns, so they line up */
+/* Heading and row share the same 6 columns. minmax(0, ...) keeps the widths
+   fixed, so the text inside can't push the columns out of line */
 .table-bar,
 .table-block{
   display: grid;
-  grid-template-columns: 50px 1.3fr 1.2fr 1fr 1.6fr 1fr;
+  grid-template-columns: 36px minmax(0, 1.2fr) minmax(0, 1.3fr) minmax(0, 1.1fr) minmax(0, 1.5fr) 110px;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .table-bar{
-  padding-bottom: 12px;
+  position: sticky;      /* headings stay at the top while scrolling */
+  top: 0;
+  padding: 16px 0 12px;
+  background: white;
   border-bottom: 3px solid var(--dark);
   font-weight: 800;
+}
+
+/* Rows must not shrink when there are many of them */
+.table-block{
+  flex-shrink: 0;
 }
 
 .table-block p{
@@ -264,7 +309,6 @@ select{
   padding: 4px 12px;
   font-size: 14px;
   font-weight: 800;
-  background: var(--green);
   border: 2px solid var(--dark);
   border-radius: 20px;
 }
