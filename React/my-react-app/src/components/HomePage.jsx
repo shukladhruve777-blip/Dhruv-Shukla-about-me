@@ -1,6 +1,6 @@
 import homePageImg from '../assets/hPage.jpg'
-import folderPageImg from '../assets/folder.jpg'
 import profileImg from '../assets/profile_Image.jpg'
+import '../HomePage.css'
 
 function HomePage(){
     const today = new Date();
@@ -18,7 +18,9 @@ function HomePage(){
         }
     };
 
-    const formattedDate = `${month} ${day}${getOrdinalSuffix(day).toUpperCase()}, ${year}`;
+    const formattedDate = `${month} ${day}${getOrdinalSuffix(day)}, ${year}`;
+
+
 
 
     return(
@@ -28,8 +30,7 @@ function HomePage(){
             <div className='sidebar'>
                 <div className='top-Part'>
                     <p className='menu-title'>Menu</p>
-                    <div className='icon-button yellow'><img className='h-Image' src={homePageImg} alt="Home" /></div>
-                    <div className='icon-button red'><img className='h-Image' src={folderPageImg} alt="Folder" /></div>
+                    <div className='icon-button red'><img className='h-Image' src={homePageImg} alt="Home" /></div>
                 </div>
                 <div className='bottom-Part'>
                     <div className='icon-botton'><img className='sidebar-Profile' src={profileImg} alt="" /></div>
@@ -65,16 +66,16 @@ function HomePage(){
                 {/* Three colored cards */}
                 <div className='studies-Info'>
                     <div className='block yellow'>
-                        <p className='right-side'>10</p>
-                        <p className='left-side'>Tasks Assigned</p>
+                        <p className='right-side'>2nd</p>
+                        <p className='left-side'>Year Student</p>
                     </div>
                     <div className='block red'>
-                        <p className='right-side'>10</p>
-                        <p className='left-side'>Tasks Assigned</p>
+                        <p className='right-side'>3.2</p>
+                        <p className='left-side'>GPA</p>
                     </div>
                     <div className='block green'>
-                        <p className='right-side'>10</p>
-                        <p className='left-side'>Tasks Assigned</p>
+                        <p className='right-side'>3</p>
+                        <p className='left-side'>Coop Term</p>
                     </div>
                 </div>
 
@@ -85,10 +86,8 @@ function HomePage(){
                             <p className='table-title'>Tasks</p>
                         </div>
                         <div className='bar-right'>
-                            <select name="cars" id="cars" defaultValue="completed">
-                                <option value="completed">Completed</option>
-                            </select>
                             <button className='add-button'>+ Add Task</button>
+                            <button className='add-button'>- Remove Task</button>
                         </div>
                     </div>
 
@@ -144,20 +143,23 @@ function HomePage(){
                         <p className='asset-number'>3</p>
                     </div>
                     <div className='asset-row'>
-                        <p></p>
-                        <p className='asset-number'>2</p>
+                        <p>Transcript</p>
+                        <p className='asset-number'>1</p>
                     </div>
                 </div>
 
                 <div className='box'>
-                    <p className='box-title'>Daily Schedule</p>
-                    <div className='event yellow'>
-                        <p><b>9AM - 11AM</b></p>
-                        <p>Classes at Sheridan</p>
+                    <p className='box-title'>Upcoming Projects</p>
+                    <div className='asset red'>
+                        <p>Get to know me - More Pages</p>
+                        <p className='asset-number'>1</p>
                     </div>
-                    <div className='event green'>
-                        <p><b>1PM - 3PM</b></p>
-                        <p>Work on projects</p>
+                    <div className='asset green'>
+                        <p>StudentTable - Additional Options and Pages</p>
+                        <p className='asset-number'>1</p>
+                    </div>
+                    <div className='asset yellow'>
+                        <p>Completion: 15th October</p>
                     </div>
                 </div>
 
