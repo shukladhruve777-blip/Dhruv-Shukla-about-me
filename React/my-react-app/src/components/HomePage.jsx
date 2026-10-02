@@ -20,9 +20,6 @@ function HomePage(){
 
     const formattedDate = `${month} ${day}${getOrdinalSuffix(day)}, ${year}`;
 
-
-
-
     return(
         <div className='homePage'>
 
